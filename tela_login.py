@@ -21,6 +21,7 @@ def fazer_login():
     cursor.execute("SELECT * FROM usuarios WHERE usuario=? AND senha=?", (usuario, senha))
     if cursor.fetchone():
         messagebox.showinfo("Sucesso", "Login bem-sucedido!")
+        os.system('python area_cliente.py')
     else:
         messagebox.showerror("Erro", "Usuário ou senha incorretos.")
     conn.close()

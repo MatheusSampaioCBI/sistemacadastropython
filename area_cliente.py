@@ -27,7 +27,7 @@ def excluir_agendamento():
 # Cria a janela principal
 root = tk.Tk()
 root.title("Área do Cliente")
-root.geometry("400x300")  # Define o tamanho da janela
+root.geometry("600x400")  # Define o tamanho da janela
 root.configure(bg="#03045e")  # Cor de fundo da janela
 
 # Cria o frame para o conteúdo
