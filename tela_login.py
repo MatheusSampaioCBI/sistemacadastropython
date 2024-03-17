@@ -12,6 +12,10 @@ def abrir_tela_registro():
 def fazer_login():
     usuario = usuario_entry.get()
     senha = senha_entry.get()
+
+    if not usuario or not senha:
+        messagebox.showerror("Erro", "Por favor, preencha todos os campos.")
+        return
     
     # Conectar ao banco de dados SQLite
     conn = sqlite3.connect('usuarios.db')
@@ -19,12 +23,17 @@ def fazer_login():
     
     # Verificar se o usuário e a senha correspondem aos registros no banco de dados
     cursor.execute("SELECT * FROM usuarios WHERE usuario=? AND senha=?", (usuario, senha))
-    if cursor.fetchone():
+    usuario_encontrado = cursor.fetchone()
+    
+    # Fechar a conexão com o banco de dados
+    conn.close()
+
+    # Verificar se um usuário foi encontrado
+    if usuario_encontrado:
         messagebox.showinfo("Sucesso", "Login bem-sucedido!")
-        os.system('python area_cliente.py')
+        os.system('python area_paciente.py')
     else:
         messagebox.showerror("Erro", "Usuário ou senha incorretos.")
-    conn.close()
 
 # Cria a janela principal
 root = tk.Tk()
