@@ -6,7 +6,7 @@ import sqlite3
 
 # Função para abrir a tela de registro
 def abrir_tela_registro():
-    os.system('python registro.py')
+    os.system('python registro_paciente.py')
 
 # Função para fazer login
 def fazer_login():
