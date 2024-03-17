@@ -6,7 +6,7 @@ import sqlite3
 
 # Função para abrir a tela de registro
 def abrir_tela_registro():
-    os.system('python registro_paciente.py')
+    os.system('python ./src/registro_paciente.py')
 
 # Função para fazer login
 def fazer_login():
@@ -31,7 +31,7 @@ def fazer_login():
     # Verificar se um usuário foi encontrado
     if usuario_encontrado:
         messagebox.showinfo("Sucesso", "Login bem-sucedido!")
-        os.system('python area_paciente.py')
+        os.system('python ./src/area_paciente.py')
     else:
         messagebox.showerror("Erro", "Usuário ou senha incorretos.")
 
@@ -54,7 +54,8 @@ tk.Label(frame, text="Senha:", font=("Arial", 12), bg="#caf0f8", fg="#0077b6").p
 senha_entry = tk.Entry(frame, font=("Arial", 10), bg="#00b4d8", show="*")
 senha_entry.pack(pady=5)
 tk.Button(frame, text="Login", command=fazer_login, font=("Arial", 12), bg="#90e0ef").pack(pady=10)
-tk.Button(frame, text="Registrar", command=abrir_tela_registro, font=("Arial", 12), bg="#90e0ef").pack(pady=10)
+tk.Button(frame, text="Registro Paciente", command=abrir_tela_registro, font=("Arial", 12), bg="#90e0ef").pack(pady=10)
+
 
 # Executa o loop principal
 root.mainloop()
